@@ -18,6 +18,7 @@
   "homepage": "https://github.com/zaferozzcan/capstone-full-ecommerce-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "stripe": "^8.128.0"
   }
