@@ -7,7 +7,7 @@ const cardRouter = require("./router/card-router");
 
 const app = express();
 
-app.use(cors({ origin: true }));
+app.use(cors());
 app.use(express.json());
 app.use("/card", cardRouter);
 
