@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 const stripe_secret_key = process.env.STRIPE_SECRET_KEY;
 const stripe = require("stripe")(stripe_secret_key);
 const cardRouter = require("./router/card-router");
