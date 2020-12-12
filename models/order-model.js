@@ -8,12 +8,12 @@ const orderSchema = new mongoose.Schema(
     user_city: String,
     user_zip: String,
     user_state: String,
-    orders: [Object],
+    orders: [],
   },
   {
     timestamps: true,
   }
 );
 
-const orderModel = mongoose.model("Order", orderSchema);
-export default orderModel;
+const Order = mongoose.model("Order", orderSchema);
+module.exports = Order;

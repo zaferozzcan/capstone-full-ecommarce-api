@@ -1,8 +1,10 @@
 const express = require("express");
-const Orders = require("../models/order-model");
+const Order = require("../models/order-model");
 
-const orderRoute = express.Router;
+const orderRouter = express.Router();
 
-orderRoute.get("/:user_id", (req, res) => {
-  Orders.find({ user_id: req.params.user_id });
+orderRouter.get("/:user_id", (req, res) => {
+  res.send("user id-->" + req.params.user_id);
 });
+
+module.exports = orderRouter;
