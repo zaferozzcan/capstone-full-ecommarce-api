@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
-    user_name: String,
-    user_lastname: String,
+    user_id: String,
+    user_email: String,
     user_address: String,
     user_city: String,
     user_zip: String,
     user_state: String,
-    user_id: String,
-    orders: { Object },
+    orders: [Object],
   },
   {
     timestamps: true,
