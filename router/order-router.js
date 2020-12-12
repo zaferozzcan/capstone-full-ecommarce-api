@@ -4,7 +4,21 @@ const Order = require("../models/order-model");
 const orderRouter = express.Router();
 
 orderRouter.get("/:user_id", (req, res) => {
-  res.send("user id-->" + req.params.user_id);
+  Order.find({ user_id: req.params.user_id }, (err, data) => {
+    if (!err) {
+      console.log(data);
+      return res.status(200).send(data);
+    } else {
+      return res
+        .status(400)
+        .send(
+          "There is an error in finding order with user_id",
+          req.params.user_id,
+          "error: ",
+          err
+        );
+    }
+  });
 });
 
 orderRouter.post("/", (req, res) => {
