@@ -6,7 +6,7 @@ const orderRouter = express.Router();
 orderRouter.get("/:user_id", (req, res) => {
   Order.find({ user_id: req.params.user_id }, (err, data) => {
     if (!err) {
-      console.log(data);
+      //   console.log("data", data);
       return res.status(200).send(data);
     } else {
       return res

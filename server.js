@@ -33,8 +33,10 @@ db.on("error", (err) => console.log(err.message + " is mongod not running?"));
 db.on("disconnected", () => console.log("mongo disconnected"));
 const cardRouter = require("./router/card-router");
 const orderRouter = require("./router/order-router.js");
+const userRouter = require("./router/user-router.js");
 app.use("/card", cardRouter);
 app.use("/order", orderRouter);
+app.use("/user", userRouter);
 
 app.listen(5000, () => {
   console.log("PORT", PORT);
