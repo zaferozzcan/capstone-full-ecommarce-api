@@ -12,9 +12,9 @@ const orderSchema = new mongoose.Schema(
     user_id: String,
     user_email: String,
     user_addres: String,
-    user_city: String,
-    user_zip: String,
-    user_state: String,
+    // user_city: String,
+    // user_zip: String,
+    // user_state: String,
     orders: [orderItemSchema],
   },
   {
