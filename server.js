@@ -2,10 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const socketio = require("socket.io");
+
 const stripe_secret_key = process.env.STRIPE_SECRET_KEY;
 const stripe = require("stripe")(stripe_secret_key);
 
 const app = express();
+// web socket initialization
+var server = require("http").createServer(app);
+const io = socketio(server); // referenced from https://github.com/socketio/chat-example.git
 const db = mongoose.connection;
 const PORT = process.env.PORT;
 const mongoURI = process.env.MONGODB_URI;
@@ -38,6 +43,6 @@ app.use("/card", cardRouter);
 app.use("/order", orderRouter);
 app.use("/user", userRouter);
 
-app.listen(5000, () => {
-  console.log("PORT", PORT);
+server.listen(PORT || 5000, () => {
+  console.log("Server is running on port", PORT);
 });
