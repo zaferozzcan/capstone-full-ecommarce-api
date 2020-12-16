@@ -10,7 +10,7 @@ const stripe = require("stripe")(stripe_secret_key);
 const app = express();
 // web socket initialization
 var server = require("http").createServer(app);
-const io = socketio(server); // referenced from https://github.com/socketio/chat-example.git
+// const io = socketio(server); // referenced from https://github.com/socketio/chat-example.git
 const db = mongoose.connection;
 const PORT = process.env.PORT;
 const mongoURI = process.env.MONGODB_URI;
@@ -45,6 +45,6 @@ app.use("/order", orderRouter);
 app.use("/user", userRouter);
 app.use("/help", socketRouter);
 
-server.listen(PORT || 5000, () => {
+app.listen(PORT || 5000, () => {
   console.log("Server is running on port", PORT);
 });
