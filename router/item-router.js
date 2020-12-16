@@ -23,4 +23,14 @@ itemRouter.post("/", (req, res) => {
   });
 });
 
+itemRouter.delete("/:id", (req, res) => {
+  item.delete({ _id: req.params.id }, (err, data) => {
+    if (!err) {
+      return res.status(200).send("Item has been deleted!");
+    } else {
+      return res.status(400).send({ error: err.message });
+    }
+  });
+});
+
 module.exports = itemRouter;
