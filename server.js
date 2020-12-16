@@ -40,10 +40,13 @@ const cardRouter = require("./router/card-router");
 const orderRouter = require("./router/order-router.js");
 const userRouter = require("./router/user-router.js");
 const socketRouter = require("./router/socket-router.js");
+const itemRouter = require("./router/item-router");
+
 app.use("/card", cardRouter);
 app.use("/order", orderRouter);
 app.use("/user", userRouter);
 app.use("/help", socketRouter);
+app.use("/item", itemRouter);
 
 app.listen(PORT || 5000, () => {
   console.log("Server is running on port", PORT);
