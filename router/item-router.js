@@ -36,11 +36,18 @@ itemRouter.delete("/:id", (req, res) => {
 });
 itemRouter.get("/deal", (req, res) => {
   if (today == "Wed") {
+    console.log(today);
     Item.find({ category: "electronic" }, (err, data) => {
-      return res
-        .status(200)
-        .send(data[Math.floor(Math.random() * data.length - 1)]);
+      if (!err) {
+        return res
+          .status(200)
+          .send(data[Math.floor(Math.random() * data.length - 1)]);
+      } else {
+        return res.status(400).send({ error: err.message });
+      }
     });
+  } else {
+    res.send("today is not Wednesday");
   }
 });
 
