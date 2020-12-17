@@ -3,6 +3,8 @@ const Item = require("../models/items-model");
 
 const itemRouter = express.Router();
 
+const today = Date().split(" ")[0];
+
 itemRouter.get("/", (req, res) => {
   Item.find({}, (err, data) => {
     if (!err) {
@@ -31,6 +33,15 @@ itemRouter.delete("/:id", (req, res) => {
       return res.status(400).send({ error: err.message });
     }
   });
+});
+itemRouter.get("/deal", (req, res) => {
+  if (today == "Wed") {
+    Item.find({ category: "electronic" }, (err, data) => {
+      return res
+        .status(200)
+        .send(data[Math.floor(Math.random() * data.length - 1)]);
+    });
+  }
 });
 
 module.exports = itemRouter;
